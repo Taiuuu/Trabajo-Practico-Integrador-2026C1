@@ -22,15 +22,13 @@ public class Usuario{
     public ArrayList<Cuenta> getCuentas() {
         return cuentas;
     }
-
-
+    
     @Override
     public String toString() {
-        return "Usuario{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", cuentas='" + cuentas + '\'' +
-                '}';
+        for (Cuenta cuenta : cuentas) {
+            return "Tipo de cuenta: " + cuenta.getTipo() + ", Alias: " + cuenta.getAlias() + ", CVU: " + cuenta.getCvu() ;
+        }
+        return "No hay cuentas para mostrar";
     }
     public void agregarCuenta(Cuenta cuenta) {
         cuentas.add(cuenta);
