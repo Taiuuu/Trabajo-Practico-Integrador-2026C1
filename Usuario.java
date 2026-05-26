@@ -1,19 +1,19 @@
-package ar.edu.ungs.billetera;
+package frantaieltpintegrador;
 public class Usuario{
 
-    private String id;
+    private String dni;
     private String nombre;
     private ArrayList<Cuenta> cuentas;
 
 
-    public Usuario(String id, String nombre) {
-        this.id = id;
+    public Usuario(String dni, String nombre) {
+        this.dni = dni;
         this.nombre = nombre;
         this.cuentas = new ArrayList<>();
     }
 
-    public String getId() {
-        return id;
+    public String getDni() {
+        return dni;
     } 
 
     public String getNombre() {

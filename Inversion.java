@@ -1,4 +1,4 @@
-package ar.edu.ungs.billetera;
+package frantaieltpintegrador;
 
 public abstract class Inversion extends Actividad {
 

@@ -1,3 +1,5 @@
+package frantaieltpintegrador;
+
 public class CuentaCorporativa extends Cuenta {
 
     private int cuit;

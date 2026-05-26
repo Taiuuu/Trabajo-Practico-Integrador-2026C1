@@ -1,4 +1,4 @@
-package ar.edu.ungs.billetera;
+package frantaieltpintegrador;
 
 import java.util.ArrayList;
 import java.util.List;

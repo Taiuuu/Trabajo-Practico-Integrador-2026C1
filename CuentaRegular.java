@@ -1,4 +1,4 @@
-package ar.edu.ungs.billetera;
+package frantaieltpintegrador;
 
 /**
  * Cuenta regular con un saldo máximo de 5 millones de pesos.
