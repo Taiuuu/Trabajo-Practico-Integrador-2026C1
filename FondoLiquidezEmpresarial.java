@@ -2,9 +2,9 @@ package frantaieltpintegrador;
 
 public class FondoLiquidezEmpresarial extends Inversion {
     
-    private static final double montoMinimo = 20_000_000.0;
+    private static final double MONTO_MINIMO = 20000000.0;
     private static final String ACTIVO = "FLE";
-    private static final double tasa = 0.08;
+    private static final double TASA = 0.08;
 
     private double cotizacionInicial;
 

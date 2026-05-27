@@ -1,20 +1,29 @@
-package frantaieltpintegrador;
+package ar.edu.ungs.billetera;
 
 public class CuentaCorporativa extends Cuenta {
+    private Empresa empresa;
 
-    private int cuit;
-    private String usuarioAutorizado;
-
-    public CuentaCorporativa(String cvu, String alias, String usuario, int cuit, String usuarioAutorizado) {
+    public CuentaCorporativa(String cvu, String alias, Usuario usuario, Empresa empresa) {
         super(cvu, alias, usuario);
-        this.cuit = cuit;
-        this.usuarioAutorizado = usuarioAutorizado;
+        this.empresa = empresa;
     }
-    @override
-    public string getTipo() {
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    @Override
+    public boolean puedeOperar(double monto) {
+        return getSaldo() >= monto;
+    }
+
+    @Override
+    public String getTipo() {
         return "Corporativa";
     }
-    public boolean puedeOperar(double monto) {
-        return getSaldoDisponible() >= monto;
+
+    @Override
+    public String toString() {
+        return getTipo() + ": " + getAlias() + " (" + getCvu() + ") | Saldo: $" + getSaldo();
     }
-    
+}

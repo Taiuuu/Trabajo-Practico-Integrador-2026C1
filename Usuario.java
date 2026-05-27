@@ -1,44 +1,57 @@
-package frantaieltpintegrador;
-public class Usuario{
+package ar.edu.ungs.billetera;
+
+import java.util.ArrayList;
+
+public class Usuario {
 
     private String dni;
     private String nombre;
+    private String telefono;
+    private String email;
     private ArrayList<Cuenta> cuentas;
+    private double totalInvertido;
 
-
-    public Usuario(String dni, String nombre) {
+    public Usuario(String dni, String nombre, String telefono, String email) {
         this.dni = dni;
         this.nombre = nombre;
+        this.telefono = telefono;
+        this.email = email;
         this.cuentas = new ArrayList<>();
+        this.totalInvertido = 0;
     }
 
-    public String getDni() {
+    public String getDni(){
         return dni;
-    } 
-
-    public String getNombre() {
+    }
+    public String getNombre(){
         return nombre;
     }
-    public ArrayList<Cuenta> getCuentas() {
+    public ArrayList<Cuenta> getCuentas(){ 
         return cuentas;
     }
-    
-    @Override
-    public String toString() {
-        for (Cuenta cuenta : cuentas) {
-            return "Tipo de cuenta: " + cuenta.getTipo() + ", Alias: " + cuenta.getAlias() + ", CVU: " + cuenta.getCvu() ;
-        }
-        return "No hay cuentas para mostrar";
+    public double getTotalInvertido(){ 
+        return totalInvertido; 
     }
+
     public void agregarCuenta(Cuenta cuenta) {
         cuentas.add(cuenta);
     }
 
-    public double totalInvertido(double monto) {
-        double total = 0;
+    public void sumarInvertido(double monto) {
+        totalInvertido += monto;
+    }
+
+    public void restarInvertido(double monto) {
+        totalInvertido -= monto;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Usuario: ").append(nombre).append(" (DNI: ").append(dni).append(")\n");
         for (Cuenta cuenta : cuentas) {
-            total += cuenta.getMontoInvertido();
+            sb.append("  ").append(cuenta).append("\n");
         }
-        return total;
+        return sb.toString();
     }
 }

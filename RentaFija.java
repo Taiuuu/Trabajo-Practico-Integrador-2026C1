@@ -2,12 +2,10 @@ package frantaieltpintegrador;
 
 public class RentaFija extends Inversion {
 
-    private int tasaDeInteres;
-    private int resultado;
-
+    private double tasaDeInteres;
 
     public RentaFija(Cuenta cuenta, double monto, int plazo, double tasaDeInteres) {
-       super(cuenta, monto, plazo, true);
+        super(cuenta, monto, plazo, true);
         this.tasaDeInteres = tasaDeInteres;
     }
 

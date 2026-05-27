@@ -11,8 +11,12 @@ public class Transferencia extends Actividad {
         this.cuentaDestino = cuentaDestino;
     }
 
-    public Cuenta getCuentaOrigen() { return cuentaOrigen; }
-    public Cuenta getCuentaDestino() { return cuentaDestino; }
+    public Cuenta getCuentaOrigen(){
+        return cuentaOrigen;
+    }
+    public Cuenta getCuentaDestino(){ 
+        return cuentaDestino;
+    }
 
     @Override
     public String toString() {

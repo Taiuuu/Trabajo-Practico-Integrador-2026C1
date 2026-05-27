@@ -1,14 +1,22 @@
-package frantaieltpintegrador;
+package ar.edu.ungs.billetera;
 
-public class Cuenta_Premium extends Cuenta {
-    public Cuenta_Premium(String cvu, String alias, String usuario) {
+public class CuentaPremium extends Cuenta {
+    private static final double SALDO_MINIMO = 500000.0;
+
+    public CuentaPremium(String cvu, String alias, Usuario usuario, double saldoInicial) {
         super(cvu, alias, usuario);
+        if (saldoInicial < SALDO_MINIMO)
+            throw new IllegalArgumentException("El saldo inicial minimo para Cuenta Premium es $500.000.");
+        acreditar(saldoInicial);
     }
-    @override
-    public string getTipo() {
-        return "Premium";
-    }
+
+    @Override
     public boolean puedeOperar(double monto) {
-        return getSaldoDisponible() >= monto * 0.9; // Permite operar con un 10% de margen adicional
+        return getSaldo() >= monto;
+    }
+
+    @Override
+    public String getTipo() {
+        return "Premium";
     }
 }

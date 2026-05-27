@@ -8,8 +8,8 @@ public class Empresa {
     private String nombreFantasia;
     private String telefono;
     private String mail;
-    private nombreContacto
-    private List<Cuenta> cuentas;
+    private String nombreContacto;
+    private ArrayList<String> dniAutorizados;
 
     public Empresa(String cuit, String nombreFantasia, String telefono, String mail, String nombreContacto) {
         this.cuit = cuit;
@@ -17,7 +17,7 @@ public class Empresa {
         this.telefono = telefono;
         this.mail = mail;
         this.nombreContacto = nombreContacto;
-        this.cuentas = new ArrayList<>();
+        this.dniAutorizados = new ArrayList<>();
     }
 
     public String getCuit() {
@@ -28,12 +28,16 @@ public class Empresa {
         return nombreFantasia;
     }
 
-    public boolean agregarAutorizado(String dni) {
+    public boolean agregarPersonaAutorizada(String dni) {
         return dniAutorizados.add(dni);
     }
 
     public boolean estaAutorizado(String dni) {
-        dniAutorizados.add(dni);
+        return dniAutorizados.contains(dni);
+    }
+
+    public ArrayList<String> getPersonasAutorizadas() {
+        return dniAutorizados;
     }
 
     @Override

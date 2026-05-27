@@ -1,27 +1,26 @@
-package frantaieltpintegrador;
+package ar.edu.ungs.billetera;
 
-/**
- * Cuenta regular con un saldo máximo de 5 millones de pesos.
- */
 public class CuentaRegular extends Cuenta {
-    private static double SALDO_MAXIMO = 5000000.0;
+    private static final double SALDO_MAXIMO = 5000000.0;
 
     public CuentaRegular(String cvu, String alias, Usuario usuario) {
         super(cvu, alias, usuario);
     }
-    @override
-    public string getTipo() {
-        return "Regular";
-    }
 
     @Override
     public boolean puedeOperar(double monto) {
-        return super.puedeOperar(monto) && (getSaldoDisponible() + monto) <= SALDO_MAXIMO;
+        return getSaldo() >= monto;
     }
 
+    @Override
+    public void acreditar(double monto) {
+        if (getSaldo() + monto > SALDO_MAXIMO)
+            throw new IllegalArgumentException("Supera el saldo maximo de $5.000.000.");
+        super.acreditar(monto);
+    }
 
     @Override
-    public String toString() {
-        return super.toString() + " [Tipo: Regular]";
+    public String getTipo() {
+        return "Regular";
     }
 }

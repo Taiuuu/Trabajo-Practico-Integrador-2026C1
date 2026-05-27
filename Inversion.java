@@ -16,15 +16,31 @@ public abstract class Inversion extends Actividad {
         this.activa = true;
     }
 
-    public Cuenta getCuenta() { return cuenta; }
-    public int getPlazo() { return plazo; }
-    public int getId() { return id; }
-    public boolean isPrecancelable() { return precancelable; }
-    public boolean isActiva() { return activa; }
+    public Cuenta getCuenta(){ 
+        return cuenta;
+    }
+    
+    public int getPlazo(){
+        return plazo;
+    }
 
-    public void setId(int id) { this.id = id; }
+    public int getId(){
+        return id;
+    }
 
-    public void cancelar() {
+    public boolean isPrecancelable(){ 
+        eturn precancelable;
+    }
+    
+    public boolean isActiva(){ 
+        return activa;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void cancelar(){
         if (!precancelable)
             throw new IllegalArgumentException("La inversion no es precancelable.");
         activa = false;

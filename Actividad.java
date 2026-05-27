@@ -4,21 +4,24 @@ import java.time.LocalDate;
 
 public abstract class Actividad {
     private LocalDate fecha;
-    private double mnonto;
+    private double monto;
     private boolean aprobada;
 
-    public Actividad(LocalDate fecha, double mnonto) {
-        this.fecha = fecha;
-        this.mnonto = mnonto;
+    public Actividad(double monto, boolean aprobada) {
+        this.fecha = LocalDate.now();
+        this.monto = monto;
         this.aprobada = aprobada;
-    }
 
-    public localDate getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
     public double getMonto() {
-        return mnonto;
+        return monto;
+    }
+
+    public boolean isAprobada() {
+        return aprobada;
     }
 
     public boolean esAprobada() {
