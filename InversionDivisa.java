@@ -9,6 +9,12 @@ public class InversionDivisa extends Inversion {
 
     public InversionDivisa(Cuenta cuenta, double monto, int plazo, String divisa, double tasaDeInteres) {
         super(cuenta, monto, plazo, true);
+        if (divisa == null || divisa.isEmpty()) {
+            throw new IllegalArgumentException("La divisa no puede ser nula o vacía");
+        }
+        if (tasaDeInteres <= 0) {
+            throw new IllegalArgumentException("La tasa de interes debe ser mayor a cero");
+        }
         this.divisa = divisa;
         this.tasaDeInteres = tasaDeInteres;
         this.cotizacionInicial = Utilitarios.consultarCotizacion(divisa);

@@ -6,6 +6,9 @@ public class RentaFija extends Inversion {
 
     public RentaFija(Cuenta cuenta, double monto, int plazo, double tasaDeInteres) {
         super(cuenta, monto, plazo, true);
+        if (tasaDeInteres <= 0) {
+            throw new IllegalArgumentException("La tasa de interes debe ser mayor a cero");
+        }
         this.tasaDeInteres = tasaDeInteres;
     }
 

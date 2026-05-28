@@ -341,4 +341,16 @@ public class Billetera implements IBilletera {
     private int generarIdInversion() {
         return contadorInversiones++;
     }
+    public void procesarinversionesfinalizanhoy() {
+        for (Inversion inversion : inversiones.values()) {
+            if (inversion.estaActiva() && inversion.getFecha().plusDays(inversion.getPlazo()).isBefore(LocalDate.now())) {
+                double resultado = inversion.calcularResultado();
+                Cuenta cuenta = obtenerCuentaExistente(inversion.getCvu());
+                cuenta.acreditar(resultado);
+                inversion.finalizar();
+                actividadesglobales.add(new Actividad("Finalizacion Inversion", cuenta, resultado)); //registramos la actividad de la finalizacion en el historial global
+                cuenta.registrarActividad(new Actividad("Finalizacion Inversion", cuenta, resultado)); //registramos la actividad de la finalizacion en el historial de la cuenta
+            }
+        }
+    }
 }

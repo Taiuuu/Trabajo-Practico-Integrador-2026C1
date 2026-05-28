@@ -15,6 +15,9 @@ public abstract class Actividad {
     if (fecha == null) {
             throw new IllegalArgumentException("La fecha no puede ser nula");
         }
+    if (monto<cuentaOrigen.getSaldoDisponible()) {
+            throw new IllegalArgumentException("El monto no puede ser mayor al saldo disponible");
+        }
 
         this.fecha = LocalDate.now();
         this.monto = monto;
