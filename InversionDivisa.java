@@ -6,6 +6,7 @@ public class InversionDivisa extends Inversion {
     private double tasaDeInteres;
     private double cotizacionInicial;
 
+
     public InversionDivisa(Cuenta cuenta, double monto, int plazo, String divisa, double tasaDeInteres) {
         super(cuenta, monto, plazo, true);
         this.divisa = divisa;

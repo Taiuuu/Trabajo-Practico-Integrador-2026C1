@@ -12,6 +12,15 @@ public abstract class Cuenta {
     private List<Actividad> actividades;
 
     public Cuenta(String cvu, String alias, Usuario usuario) {
+        if (cvu == null || cvu.isEmpty()) {
+            throw new IllegalArgumentException("El CVU no puede ser nulo o vacío.");
+        }
+        if (alias == null || alias.isEmpty()) {
+            throw new IllegalArgumentException("El alias no puede ser nulo o vacío.");
+        }
+        if (usuario == null) {
+            throw new IllegalArgumentException("El usuario no puede ser nulo.");
+        }
         this.cvu = cvu;
         this.alias = alias;
         this.usuario = usuario;
